@@ -38,7 +38,8 @@ export const userApi = {
         id: true,
         email: true,
         name: true,
-        password: true
+        password: true,
+        role: true
       }
     })
   },
@@ -56,7 +57,7 @@ export const userApi = {
       return null
     }
 
-    // Возвращаем пользователя без пароля
+    // Возвращаем пользователя без пароля, но с ролью
     const { password, ...userWithoutPassword } = user
     return userWithoutPassword
   }

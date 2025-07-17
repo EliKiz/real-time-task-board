@@ -36,9 +36,14 @@ export default function Home() {
               Task Board
             </h1>
             <div className="flex items-center space-x-4">
-              <span className="text-gray-700">
-                Добро пожаловать, {session.user?.name || session.user?.email}!
-              </span>
+              <div className="text-right">
+                <div className="text-gray-700">
+                  Добро пожаловать, {session.user?.name || session.user?.email}!
+                </div>
+                <div className="text-sm text-gray-500">
+                  Роль: {session.user.role === 'ADMIN' ? 'Администратор' : 'Сотрудник'}
+                </div>
+              </div>
               <button
                 onClick={() => signOut({ callbackUrl: "/login" })}
                 className="bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-md transition-colors"
