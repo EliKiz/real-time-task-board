@@ -4,11 +4,10 @@ import bcrypt from "bcryptjs";
 const prisma = new PrismaClient();
 
 async function main() {
-  // Создаем админа
   const adminUser = await prisma.user.upsert({
     where: { email: "admin@example.com" },
     update: {
-      password: await bcrypt.hash("password", 12), // Обновляем пароль
+      password: await bcrypt.hash("password", 12),
     },
     create: {
       email: "admin@example.com",
@@ -18,11 +17,10 @@ async function main() {
     },
   });
 
-  // Создаем обычного сотрудника
   const employeeUser = await prisma.user.upsert({
     where: { email: "employee@example.com" },
     update: {
-      password: await bcrypt.hash("password", 12), // Обновляем пароль
+      password: await bcrypt.hash("password", 12),
     },
     create: {
       email: "employee@example.com",
