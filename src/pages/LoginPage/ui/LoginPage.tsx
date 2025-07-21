@@ -7,7 +7,7 @@ import { LoadingSpinner } from "@/shared/ui/loading";
 import { useTheme } from "@/shared/ui/ThemeProvider";
 import { ThemeToggle } from "@/shared/ui/ThemeToggle";
 
-export function LoginPage() {
+export const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -284,4 +284,4 @@ export function LoginPage() {
       </div>
     </div>
   );
-}
+};

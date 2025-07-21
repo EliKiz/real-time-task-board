@@ -5,10 +5,12 @@ interface ComponentLoadingProps {
   size?: 'sm' | 'md' | 'lg';
 }
 
-export function ComponentLoading({
-  message = "Loading...",
-  size = "md"
-}: ComponentLoadingProps) {
+export const ComponentLoading = (
+  {
+    message = "Loading...",
+    size = "md"
+  }: ComponentLoadingProps
+) => {
   return (
     <div className="flex items-center justify-center p-4">
       <div className="text-center">
@@ -17,4 +19,4 @@ export function ComponentLoading({
       </div>
     </div>
   );
-} 
+}; 

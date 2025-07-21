@@ -1,5 +1,7 @@
 import { PageLoading } from "@/shared/ui/loading";
 
-export default function LoginLoading() {
+const LoginLoading = () => {
   return <PageLoading message="Loading login page..." />;
-} 
+};
+
+export default LoginLoading; 

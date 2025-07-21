@@ -1,5 +1,4 @@
-"use client";
-
+"use client";;
 import { useEffect, useState } from 'react';
 import { ComponentLoading } from '@/shared/ui/loading';
 
@@ -31,7 +30,7 @@ interface StatsCardProps {
   color: string;
 }
 
-function StatsCard({ title, value, color }: StatsCardProps) {
+const StatsCard = ({ title, value, color }: StatsCardProps) => {
   return (
     <div className="bg-white p-4 rounded-lg border border-gray-200">
       <div className="flex items-center">
@@ -43,13 +42,13 @@ function StatsCard({ title, value, color }: StatsCardProps) {
       </div>
     </div>
   );
-}
+};
 
 interface StatsContentProps {
   userRole: string;
 }
 
-function StatsContent({ userRole }: StatsContentProps) {
+const StatsContent = ({ userRole }: StatsContentProps) => {
   const [stats, setStats] = useState<UserStatsData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -98,17 +97,17 @@ function StatsContent({ userRole }: StatsContentProps) {
       )}
     </div>
   );
-}
+};
 
 interface UserStatsProps {
   userRole: string;
 }
 
-export function UserStats({ userRole }: UserStatsProps) {
+export const UserStats = ({ userRole }: UserStatsProps) => {
   return (
     <div className="bg-white rounded-lg shadow p-6">
       <h2 className="text-xl font-semibold text-gray-900 mb-4">Your Statistics</h2>
       <StatsContent userRole={userRole} />
     </div>
   );
-} 
+}; 

@@ -55,7 +55,7 @@ const priorityLabels = {
   [TaskPriority.CRITICAL]: { label: 'Critical', icon: '⚡', color: 'red' },
 };
 
-export function CreateTaskForm() {
+export const CreateTaskForm = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [priority, setPriority] = useState<TaskPriority>(TaskPriority.MEDIUM);
@@ -297,4 +297,4 @@ export function CreateTaskForm() {
       )}
     </div>
   );
-} 
+}; 

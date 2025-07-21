@@ -4,7 +4,7 @@ interface PageLoadingProps {
   message?: string;
 }
 
-export function PageLoading({ message = "Loading..." }: PageLoadingProps) {
+export const PageLoading = ({ message = "Loading..." }: PageLoadingProps) => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-background">
       <div className="text-center">
@@ -13,4 +13,4 @@ export function PageLoading({ message = "Loading..." }: PageLoadingProps) {
       </div>
     </div>
   );
-} 
+}; 

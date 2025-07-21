@@ -115,7 +115,7 @@ const getPriorityBadge = (priority: string) => {
   );
 };
 
-export function TaskList() {
+export const TaskList = () => {
   const [statusFilter, setStatusFilter] = useState<
     "TODO" | "IN_PROGRESS" | "COMPLETED" | ""
   >("");
@@ -560,4 +560,4 @@ export function TaskList() {
       )}
     </div>
   );
-}
+};

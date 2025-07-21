@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
 // Инициализация WebSocket сервера
-export async function GET() {
+export const GET = async () => {
   try {
     // Импортируем и инициализируем WebSocket сервер
     const { initializeWebSocketServer } = await import('@/lib/websocket-server');
@@ -18,4 +18,4 @@ export async function GET() {
       { status: 500 }
     );
   }
-} 
+}; 

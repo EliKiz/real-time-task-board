@@ -1,5 +1,7 @@
 import { LoginPage } from '@/pages/LoginPage';
 
-export default function Login() {
+const Login = () => {
   return <LoginPage />;
-} 
+};
+
+export default Login; 

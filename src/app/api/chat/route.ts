@@ -3,7 +3,7 @@ import { getServerSession } from 'next-auth/next';
 import { authConfig } from '@/shared/config/auth.config';
 import { prisma } from '@/shared/lib/prisma';
 
-export async function GET(request: NextRequest) {
+export const GET = async (request: NextRequest) => {
   try {
     const session = await getServerSession(authConfig);
     
@@ -36,9 +36,9 @@ export async function GET(request: NextRequest) {
       { status: 500 }
     );
   }
-}
+};
 
-export async function POST(request: NextRequest) {
+export const POST = async (request: NextRequest) => {
   try {
     const session = await getServerSession(authConfig);
     
@@ -81,4 +81,4 @@ export async function POST(request: NextRequest) {
       { status: 500 }
     );
   }
-} 
+}; 

@@ -9,7 +9,7 @@ import { TeamChat } from "@/widgets/TeamChat";
 import { useTheme } from "@/shared/ui/ThemeProvider";
 import { ThemeToggle } from "@/shared/ui/ThemeToggle";
 
-export default function Home() {
+const Home = () => {
   const { data: session, status } = useSession();
   const router = useRouter();
   const { isDark } = useTheme();
@@ -127,4 +127,6 @@ export default function Home() {
       </main>
     </div>
   );
-}
+};
+
+export default Home;

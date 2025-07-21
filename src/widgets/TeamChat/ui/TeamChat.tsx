@@ -56,7 +56,7 @@ interface WebSocketMessage {
   onlineCount?: number;
 }
 
-export function TeamChat() {
+export const TeamChat = () => {
   const { data: session } = useSession();
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState<ChatMessageType[]>([]);
@@ -232,7 +232,6 @@ export function TeamChat() {
               break;
 
             case "error":
-              console.error("❌ WebSocket error:", wsMessage.message);
               setError(wsMessage.message || "WebSocket error");
               break;
           }
@@ -514,4 +513,4 @@ export function TeamChat() {
       />
     </div>
   );
-}
+};

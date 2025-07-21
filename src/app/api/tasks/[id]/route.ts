@@ -4,10 +4,7 @@ import { authConfig } from '@/shared/config/auth.config';
 import { prisma } from '@/shared/lib/prisma';
 
 // GET /api/tasks/[id] - получение одной задачи
-export async function GET(
-  request: NextRequest,
-  { params }: { params: { id: string } }
-) {
+export const GET = async (request: NextRequest, { params }: { params: { id: string } }) => {
   try {
     const session = await getServerSession(authConfig);
     
@@ -53,13 +50,10 @@ export async function GET(
       { status: 500 }
     );
   }
-}
+};
 
 // PUT/PATCH /api/tasks/[id] - обновление задачи
-export async function PUT(
-  request: NextRequest,
-  { params }: { params: { id: string } }
-) {
+export const PUT = async (request: NextRequest, { params }: { params: { id: string } }) => {
   try {
     const session = await getServerSession(authConfig);
     
@@ -138,13 +132,10 @@ export async function PUT(
       { status: 500 }
     );
   }
-}
+};
 
 // DELETE /api/tasks/[id] - удаление задачи
-export async function DELETE(
-  request: NextRequest,
-  { params }: { params: { id: string } }
-) {
+export const DELETE = async (request: NextRequest, { params }: { params: { id: string } }) => {
   try {
     const session = await getServerSession(authConfig);
     
@@ -180,4 +171,4 @@ export async function DELETE(
       { status: 500 }
     );
   }
-} 
+}; 

@@ -1,5 +1,7 @@
 import { PageLoading } from "@/shared/ui/loading";
 
-export default function Loading() {
+const Loading = () => {
   return <PageLoading message="Loading application..." />;
-} 
+};
+
+export default Loading; 
