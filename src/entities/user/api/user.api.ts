@@ -1,34 +1,34 @@
-import { prisma } from '@/shared/lib/db'
-import bcrypt from 'bcryptjs'
+import { prisma } from "@/shared/lib/prisma";
+import bcrypt from "bcryptjs";
 
 export interface CreateUserData {
-  email: string
-  name?: string
-  password: string
+  email: string;
+  name?: string;
+  password: string;
 }
 
 export interface LoginCredentials {
-  email: string
-  password: string
+  email: string;
+  password: string;
 }
 
 export const userApi = {
   async createUser(data: CreateUserData) {
-    const hashedPassword = await bcrypt.hash(data.password, 12)
-    
+    const hashedPassword = await bcrypt.hash(data.password, 12);
+
     return await prisma.user.create({
       data: {
         email: data.email,
         name: data.name,
-        password: hashedPassword
+        password: hashedPassword,
       },
       select: {
         id: true,
         email: true,
         name: true,
-        createdAt: true
-      }
-    })
+        createdAt: true,
+      },
+    });
   },
 
   async findUserByEmail(email: string) {
@@ -38,26 +38,29 @@ export const userApi = {
         id: true,
         email: true,
         name: true,
-        password: true
-      }
-    })
+        password: true,
+        role: true,
+      },
+    });
   },
 
   async validateUser(credentials: LoginCredentials) {
-    const user = await this.findUserByEmail(credentials.email)
-    
+    const user = await this.findUserByEmail(credentials.email);
+
     if (!user) {
-      return null
+      return null;
     }
 
-    const isValidPassword = await bcrypt.compare(credentials.password, user.password)
-    
+    const isValidPassword = await bcrypt.compare(
+      credentials.password,
+      user.password
+    );
+
     if (!isValidPassword) {
-      return null
+      return null;
     }
 
-    // Возвращаем пользователя без пароля
-    const { password, ...userWithoutPassword } = user
-    return userWithoutPassword
-  }
-} 
+    const { password, ...userWithoutPassword } = user;
+    return userWithoutPassword;
+  },
+};

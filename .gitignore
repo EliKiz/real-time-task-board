@@ -40,4 +40,10 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# prisma
 /src/generated/prisma
+*.db
+/prisma/dev.db
+
+*storybook.log
+storybook-static
