@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { signIn } from "next-auth/react";
+import { Button } from "taskboard-ui";
 import { useRouter } from "next/navigation";
 import { LoadingSpinner } from "@/shared/ui/loading";
 import { useTheme } from "@/shared/ui/ThemeProvider";

@@ -6,6 +6,7 @@ import { AuthProvider } from "./providers/SessionProvider";
 import { PageLoading } from "@/shared/ui/loading";
 import { QueryProvider } from "./providers/QueryProvider";
 import { ThemeProvider } from "@/shared/ui/ThemeProvider";
+import { MuiThemeProvider } from "@/shared/ui/MuiThemeProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,15 +29,17 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ThemeProvider>
-          <QueryProvider>
-            <AuthProvider>
-              <Suspense fallback={<PageLoading message="Loading application..." />}>
-                {children}
-              </Suspense>
-            </AuthProvider>
-          </QueryProvider>
-        </ThemeProvider>
+        <MuiThemeProvider>
+          <ThemeProvider>
+            <QueryProvider>
+              <AuthProvider>
+                <Suspense fallback={<PageLoading message="Loading application..." />}>
+                  {children}
+                </Suspense>
+              </AuthProvider>
+            </QueryProvider>
+          </ThemeProvider>
+        </MuiThemeProvider>
       </body>
     </html>
   );
