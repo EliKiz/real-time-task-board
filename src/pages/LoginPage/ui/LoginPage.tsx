@@ -2,11 +2,12 @@
 
 import { useState } from "react";
 import { signIn } from "next-auth/react";
-import { Button } from "taskboard-ui";
+// import { Button } from "taskboard-ui";
 import { useRouter } from "next/navigation";
 import { LoadingSpinner } from "@/shared/ui/loading";
 import { useTheme } from "@/shared/ui/ThemeProvider";
 import { ThemeToggle } from "@/shared/ui/ThemeToggle";
+import { Button } from "@taskboard-ui/shared/ui/Button";
 
 export const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -125,6 +126,10 @@ export const LoginPage = () => {
                 </div>
               </div>
             )}
+
+            <Button variant="outlined" color="error" >
+                АС САЛЯМУ АЛЕЙКУМ
+            </Button>
 
             {/* Form Fields */}
             <div className="space-y-4">

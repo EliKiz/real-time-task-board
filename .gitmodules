@@ -1,0 +1,3 @@
+[submodule "taskboard-ui"]
+	path = taskboard-ui
+	url = https://github.com/EliKiz/taskboard-ui
