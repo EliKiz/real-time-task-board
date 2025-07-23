@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { LoadingSpinner } from "@/shared/ui/loading";
 import { useTheme } from "@/shared/ui/ThemeProvider";
 import { ThemeToggle } from "@/shared/ui/ThemeToggle";
 
@@ -57,25 +56,26 @@ export const LoginPage = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-muted/20 to-accent/20 py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      {/* Background Patterns */}
-      <div className={`absolute inset-0 ${
-        isDark 
-          ? 'bg-[radial-gradient(ellipse_800px_600px_at_50%_-40%,rgba(120,119,198,0.1),transparent)]' 
-          : 'bg-[radial-gradient(ellipse_800px_600px_at_50%_-40%,rgba(120,119,198,0.3),transparent)]'
-      }`}></div>
-      <div className={`absolute inset-0 ${
-        isDark 
-          ? 'bg-[radial-gradient(ellipse_600px_400px_at_80%_100%,rgba(59,130,246,0.1),transparent)]' 
-          : 'bg-[radial-gradient(ellipse_600px_400px_at_80%_100%,rgba(59,130,246,0.2),transparent)]'
-      }`}></div>
+      <div
+        className={`absolute inset-0 ${
+          isDark
+            ? "bg-[radial-gradient(ellipse_800px_600px_at_50%_-40%,rgba(120,119,198,0.1),transparent)]"
+            : "bg-[radial-gradient(ellipse_800px_600px_at_50%_-40%,rgba(120,119,198,0.3),transparent)]"
+        }`}
+      ></div>
+      <div
+        className={`absolute inset-0 ${
+          isDark
+            ? "bg-[radial-gradient(ellipse_600px_400px_at_80%_100%,rgba(59,130,246,0.1),transparent)]"
+            : "bg-[radial-gradient(ellipse_600px_400px_at_80%_100%,rgba(59,130,246,0.2),transparent)]"
+        }`}
+      ></div>
 
       <div className="max-w-md w-full relative z-10">
-        {/* Theme Toggle */}
         <div className="absolute top-4 right-4">
           <ThemeToggle />
         </div>
 
-        {/* Logo and Header */}
         <div className="text-center mb-8">
           <div className="w-20 h-20 bg-gradient-to-br from-primary to-primary/80 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-xl shadow-primary/20">
             <svg
@@ -100,10 +100,8 @@ export const LoginPage = () => {
           </p>
         </div>
 
-        {/* Login Card */}
         <div className="bg-card/80 backdrop-blur-xl rounded-3xl shadow-2xl border border-border/20 p-8 transform transition-all duration-300 hover:shadow-3xl">
           <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Error Message */}
             {error && (
               <div className="bg-gradient-to-r from-destructive/10 to-destructive/5 border border-destructive/20 text-destructive px-4 py-3 rounded-2xl shadow-sm backdrop-blur-sm animate-in slide-in-from-top-2 duration-300">
                 <div className="flex items-center gap-3">
@@ -125,9 +123,7 @@ export const LoginPage = () => {
               </div>
             )}
 
-            {/* Form Fields */}
             <div className="space-y-4">
-              {/* Email Field */}
               <div className="space-y-2">
                 <label
                   htmlFor="email"
@@ -162,7 +158,6 @@ export const LoginPage = () => {
                 />
               </div>
 
-              {/* Password Field */}
               <div className="space-y-2">
                 <label
                   htmlFor="password"
@@ -198,7 +193,6 @@ export const LoginPage = () => {
               </div>
             </div>
 
-            {/* Sign In Button */}
             <div className="pt-4">
               <button
                 type="submit"
@@ -231,7 +225,6 @@ export const LoginPage = () => {
               </button>
             </div>
 
-            {/* Divider */}
             <div className="relative py-4">
               <div className="absolute inset-0 flex items-center">
                 <div className="w-full border-t border-border/60" />
@@ -243,7 +236,6 @@ export const LoginPage = () => {
               </div>
             </div>
 
-            {/* Google Sign In */}
             <button
               type="button"
               onClick={handleGoogleSignIn}
